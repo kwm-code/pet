@@ -1,0 +1,28 @@
+{
+    "name": "georgringer/pet",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Georg Ringer",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeorgRinger\\Pet\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GeorgRinger\\Pet\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "georgringer/pet": "self.version",
+        "typo3-ter/pet": "self.version"
+    }
+}

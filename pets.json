@@ -1,0 +1,65 @@
+[
+    {
+        "id": 12,
+        "type": "Hund",
+        "cuteness": 5,
+        "name": "Beethoven",
+        "weight": 20.6
+    },
+    {
+        "id": 13,
+        "type": "Hund",
+        "cuteness": 8,
+        "name": "Snoopy",
+        "weight": 5
+    },
+    {
+        "id": 14,
+        "type": "Hund",
+        "name": "Goofy",
+        "cuteness": 7,
+        "weight": 10
+    },
+    {
+        "id": 15,
+        "type": "Hund",
+        "name": "Pluto",
+        "cuteness": 11,
+        "weight": 14
+    },
+    {
+        "id": 16,
+        "type": "Hund",
+        "name": "Rin Tin Tin",
+        "cuteness": 5,
+        "weight": 12
+    },
+    {
+        "id": 18,
+        "type": "Katze",
+        "name": "Azrael",
+        "cuteness": 0,
+        "weight": 6
+    },
+    {
+        "id": 19,
+        "type": "Katze",
+        "name": "Garfield",
+        "cuteness": 15,
+        "weight": 8
+    },
+    {
+        "id": 20,
+        "type": "Katze",
+        "name": "Salem",
+        "cuteness": 13,
+        "weight": 6.5
+    },
+    {
+        "id": 22,
+        "type": "Vogel",
+        "name": "Abraxas",
+        "cuteness": 3,
+        "weight": 1.2
+    }
+]

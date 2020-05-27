@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-05-22T21:17:24Z" product-name="pet">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="teaser.description">
+				<source>teaser</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="media.description">
+				<source>media</source>
+			</trans-unit>
+			<trans-unit id="weight.description">
+				<source>weight</source>
+			</trans-unit>
+			<trans-unit id="cuteness.description">
+				<source>cuteness</source>
+			</trans-unit>
+			<trans-unit id="easy_to_handle.description">
+				<source>easyToHandle</source>
+			</trans-unit>
+			<trans-unit id="pet_type.description">
+				<source>petType</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
