@@ -123,7 +123,6 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
-                'readOnly' => true,
             ],
         ],
         'teaser' => [
@@ -152,12 +151,12 @@ return [
                 'rows' => 15,
                 'eval' => 'trim',
             ],
-            
+
         ],
         'media' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pet/Resources/Private/Language/locallang_db.xlf:tx_pet_domain_model_pet.media',
-            'config' => 
+            'config' =>
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
                 [
@@ -244,6 +243,6 @@ return [
                 'maxitems' => 1,
             ],
         ],
-    
+
     ],
 ];
