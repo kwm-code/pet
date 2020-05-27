@@ -16,7 +16,7 @@
                                 <items>
                                     <numIndex index="1">
                                         <numIndex index="0">Liste + Details</numIndex>
-                                        <numIndex index="1">Pet->list;pet->show</numIndex>
+                                        <numIndex index="1">Pet->list;Pet->show</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
                                         <numIndex index="0">Arten</numIndex>
