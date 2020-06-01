@@ -19,7 +19,6 @@ class ImportCommand extends Command
     protected function configure()
     {
         $this->setDescription('Import pets')
-//            ->addArgument('type', InputArgument::REQUIRED, 'Type')
             ->addArgument('file', InputArgument::REQUIRED, 'Path to import file')
             ->addArgument('pageId', InputArgument::OPTIONAL, 'Page Id', 123);
     }

@@ -1,6 +1,11 @@
 <?php
+
 namespace GeorgRinger\Pet\Controller;
 
+
+use GeorgRinger\Pet\Domain\Model\Filter;
+use GeorgRinger\Pet\Service\MetatagService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***
  *
@@ -12,6 +17,7 @@ namespace GeorgRinger\Pet\Controller;
  *  (c) 2020 Georg Ringer <mail@ringer.it>
  *
  ***/
+
 /**
  * PetController
  */
@@ -28,14 +34,23 @@ class PetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
 
     /**
-     * action list
-     *
-     * @return void
+     * @var \GeorgRinger\Pet\Domain\Repository\PetTypeRepository
+     * @inject
      */
-    public function listAction()
+    protected $petTypeRepository = null;
+
+    public function listAction(): void
     {
-        $pets = $this->petRepository->findAll();
+        $filter = new Filter($this->settings);
+        $pets = $this->petRepository->findByFilter($filter);
+
         $this->view->assign('pets', $pets);
+        $this->view->assign('filter', $filter);
+
+        if ($petType = $filter->getPetType()) {
+            $type = $this->petTypeRepository->findByIdentifier($petType);
+            $this->view->assign('petType', $type);
+        }
     }
 
     /**
@@ -47,5 +62,10 @@ class PetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function showAction(\GeorgRinger\Pet\Domain\Model\Pet $pet)
     {
         $this->view->assign('pet', $pet);
+        if ($pet) {
+            $metaTagService = GeneralUtility::makeInstance(MetatagService::class);
+            $metaTagService->addDescription($pet->getTeaser());
+            $metaTagService->addTitle($pet->getName());
+        }
     }
 }

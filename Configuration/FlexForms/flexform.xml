@@ -1,66 +1,168 @@
-<T3DataStructure>
-    <sheets>
-        <sDEF>
-            <ROOT>
-                <TCEforms>
-                    <sheetTitle>Einstellungen</sheetTitle>
-                </TCEforms>
-                <type>array</type>
-                <el>
-                    <switchableControllerActions>
-                        <TCEforms>
-                            <label>Ansicht</label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items>
-                                    <numIndex index="1">
-                                        <numIndex index="0">Liste + Details</numIndex>
-                                        <numIndex index="1">Pet->list;Pet->show</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">Arten</numIndex>
-                                        <numIndex index="1">PetType->list;PetType->show</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </switchableControllerActions>
+    <T3DataStructure>
+        <sheets>
+            <sDEF>
+                <ROOT>
+                    <TCEforms>
+                        <sheetTitle>Einstellungen</sheetTitle>
+                    </TCEforms>
+                    <type>array</type>
+                    <el>
+                        <switchableControllerActions>
+                            <TCEforms>
+                                <label>Ansicht</label>
+                                <config>
+                                    <type>select</type>
+                                    <renderType>selectSingle</renderType>
+                                    <items>
+                                        <numIndex index="1">
+                                            <numIndex index="0">Liste + Details</numIndex>
+                                            <numIndex index="1">Pet->list;Pet->show</numIndex>
+                                        </numIndex>
+                                        <numIndex index="2">
+                                            <numIndex index="0">Arten</numIndex>
+                                            <numIndex index="1">PetType->list;PetType->show</numIndex>
+                                        </numIndex>
+                                    </items>
+                                </config>
+                            </TCEforms>
+                        </switchableControllerActions>
 
-                    <settings.petPage>
-                        <TCEforms>
-                            <label>Pet Detailseite</label>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <size>1</size>
-                                <maxitems>1</maxitems>
-                                <minitems>0</minitems>
-                            </config>
-                        </TCEforms>
-                    </settings.petPage>
+                        <settings.sortBy>
+                            <TCEforms>
+                                <label>Sortierung</label>
+                                <config>
+                                    <type>select</type>
+                                    <renderType>selectSingle</renderType>
+                                    <items>
+                                        <numIndex index="1">
+                                            <numIndex index="0">Name</numIndex>
+                                            <numIndex index="1">name</numIndex>
+                                        </numIndex>
+                                        <numIndex index="2">
+                                            <numIndex index="0">Gewicht</numIndex>
+                                            <numIndex index="1">weight</numIndex>
+                                        </numIndex>
+                                        <numIndex index="3">
+                                            <numIndex index="0">Cuteness</numIndex>
+                                            <numIndex index="1">cuteness</numIndex>
+                                        </numIndex>
+                                    </items>
+                                </config>
+                            </TCEforms>
+                        </settings.sortBy>
 
+                    </el>
+                </ROOT>
+            </sDEF>
+            <pages>
+                <ROOT>
+                    <TCEforms>
+                        <sheetTitle>Seiten</sheetTitle>
+                    </TCEforms>
+                    <type>array</type>
+                    <el>
+                        <settings.petPage>
+                            <TCEforms>
+                                <label>Pet Detailseite</label>
+                                <config>
+                                    <type>group</type>
+                                    <internal_type>db</internal_type>
+                                    <allowed>pages</allowed>
+                                    <size>1</size>
+                                    <maxitems>1</maxitems>
+                                    <minitems>0</minitems>
+                                </config>
+                            </TCEforms>
+                        </settings.petPage>
+                    </el>
+                </ROOT>
+            </pages>
 
-                    <settings.petType>
-                        <TCEforms>
-                            <label>Art</label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <foreign_table>tx_pet_domain_model_pettype</foreign_table>
-                                <items>
-                                    <numIndex index="1">
-                                        <numIndex index="0"></numIndex>
-                                        <numIndex index="1"></numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </settings.petType>
+            <filter>
+                <ROOT>
+                    <TCEforms>
+                        <sheetTitle>Filter</sheetTitle>
+                    </TCEforms>
+                    <type>array</type>
+                    <el>
+                        <settings.petType>
+                            <TCEforms>
+                                <label>Art</label>
+                                <config>
+                                    <type>select</type>
+                                    <renderType>selectSingle</renderType>
+                                    <foreign_table>tx_pet_domain_model_pettype</foreign_table>
+                                    <items>
+                                        <numIndex index="1">
+                                            <numIndex index="0"></numIndex>
+                                            <numIndex index="1"></numIndex>
+                                        </numIndex>
+                                    </items>
+                                </config>
+                            </TCEforms>
+                        </settings.petType>
 
-                </el>
-            </ROOT>
-        </sDEF>
-    </sheets>
-</T3DataStructure>
+                        <settings.easyToHandle>
+                            <TCEforms>
+                                <label>Easy to handle</label>
+                                <config>
+                                    <type>select</type>
+                                    <renderType>selectSingle</renderType>
+                                    <items>
+                                        <numIndex index="1">
+                                            <numIndex index="0">0</numIndex>
+                                            <numIndex index="1">Alle</numIndex>
+                                        </numIndex>
+                                        <numIndex index="2">
+                                            <numIndex index="0">1</numIndex>
+                                            <numIndex index="1">Nur alle mit ja [x]</numIndex>
+                                        </numIndex>
+                                        <numIndex index="3">
+                                            <numIndex index="0">2</numIndex>
+                                            <numIndex index="1">Nur alle mit nein [ ]</numIndex>
+                                        </numIndex>
+                                    </items>
+                                </config>
+                            </TCEforms>
+                        </settings.easyToHandle>
+                        <settings.minimumWeight>
+                            <TCEforms>
+                                <label>Minimum Gewicht</label>
+                                <config>
+                                    <type>input</type>
+                                    <eval>int</eval>
+                                </config>
+                            </TCEforms>
+                        </settings.minimumWeight>
+                        <settings.maximumWeight>
+                            <TCEforms>
+                                <label>Max. Gewicht</label>
+                                <config>
+                                    <type>input</type>
+                                    <eval>int</eval>
+                                </config>
+                            </TCEforms>
+                        </settings.maximumWeight>
+                        <settings.minimumCuteness>
+                            <TCEforms>
+                                <label>Min. Cuteness</label>
+                                <config>
+                                    <type>input</type>
+                                    <eval>int</eval>
+                                </config>
+                            </TCEforms>
+                        </settings.minimumCuteness>
+                        <settings.maximumCuteness>
+                            <TCEforms>
+                                <label>Max. Cuteness</label>
+                                <config>
+                                    <type>input</type>
+                                    <eval>int</eval>
+                                </config>
+                            </TCEforms>
+                        </settings.maximumCuteness>
+                    </el>
+                </ROOT>
+            </filter>
+        </sheets>
+    </T3DataStructure>

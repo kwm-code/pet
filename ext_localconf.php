@@ -19,9 +19,22 @@ call_user_func(
             ]
         );
 
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(trim('
+    config.pageTitleProviders {
+        pet {
+            provider = GeorgRinger\Pet\Service\TitleProvider
+            before = altPageTitle,record,seo
+        }
+    }'));
+
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        'mod {
+        '
+        mod.web_layout.tt_content.preview.list {
+            pet_pet = EXT:pet/Resources/Private/Templates/BackendPreview.html
+        }
+
+        mod {
             wizards.newContentElement.wizardItems.plugins {
                 elements {
                     pet {
@@ -39,12 +52,12 @@ call_user_func(
        }'
     );
 		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-		
+
 			$iconRegistry->registerIcon(
 				'pet-plugin-pet',
 				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 				['source' => 'EXT:pet/Resources/Public/Icons/user_plugin_pet.svg']
 			);
-		
+
     }
 );
