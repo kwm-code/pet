@@ -1,38 +1,12 @@
-<html xmlns:demo="http://typo3.org/ns/Ringer/Demo/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="table table-condsended">
 
-{f:variable(name: 'flex', value: pi_flexform_transformed)}
-<h3>Pets</h3>
-
-<table class="table table-small table-condensed table-striped table-hover">
-    <thead>
-    <tr>
-        <th colspan="2" class="cxol-title">
-            <f:switch expression="{flex.switchableControllerActions}">
-                <f:case value="Pet->list;Pet->show">Pet Liste + Detail</f:case>
-            </f:switch>
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <f:render section="item" arguments="{name:'min weight', value:flex.settings.minimumWeight}"/>
-    <f:render section="item" arguments="{name:'max weight', value:flex.settings.maximumWeight}"/>
-    <f:render section="item" arguments="{name:'min cuteness', value:flex.settings.minimumCuteness}"/>
-    <f:render section="item" arguments="{name:'max cuteness', value:flex.settings.maximumCuteness}"/>
-    <f:if condition="{flex.settings.petType}">
-        <tr>
-            <th>Art</th>
-            <td><demo:recordTitle id="{flex.settings.petType}" table="tx_pet_domain_model_pettype" /></td>
-        </tr>
-    </f:if>
-    </tbody>
+    <f:render section="item" arguments="{label:'min. cuteness', value:pi_flexform_transformed.settings.minimumCuteness}" />
+    <f:render section="item" arguments="{label:'max. cuteness', value:pi_flexform_transformed.settings.maximumCuteness}" />
 </table>
 
 <f:section name="item">
-    <f:if condition="{value}">
-        <tr>
-            <th>{name}</th>
-            <td>{value}</td>
-        </tr>
-    </f:if>
+    <tr>
+        <th>{label}</th>
+        <td>{value}</td>
+    </tr>
 </f:section>
-</html>

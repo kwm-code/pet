@@ -2,6 +2,9 @@
 namespace GeorgRinger\Pet\Controller;
 
 
+use GeorgRinger\Pet\Service\MetatagService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***
  *
  * This file is part of the "Pets" Extension for TYPO3 CMS.
@@ -56,6 +59,9 @@ class PetTypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     {
         $this->view->assign('petType', $petType);
         if ($petType) {
+            $metatagService = GeneralUtility::makeInstance(MetatagService::class);
+            $metatagService->addTitle($petType->getName());
+            $metatagService->addDescription($petType->getDescription());
             $this->view->assign('pets', $this->petRepository->findByType($petType->getUid()));
         }
     }

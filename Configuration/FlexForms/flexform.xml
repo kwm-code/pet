@@ -110,16 +110,16 @@
                                     <renderType>selectSingle</renderType>
                                     <items>
                                         <numIndex index="1">
-                                            <numIndex index="0">0</numIndex>
-                                            <numIndex index="1">Alle</numIndex>
+                                            <numIndex index="0">Alle</numIndex>
+                                            <numIndex index="1">0</numIndex>
                                         </numIndex>
                                         <numIndex index="2">
-                                            <numIndex index="0">1</numIndex>
-                                            <numIndex index="1">Nur alle mit ja [x]</numIndex>
+                                            <numIndex index="0">Nur alle mit ja [x]</numIndex>
+                                            <numIndex index="1">1</numIndex>
                                         </numIndex>
                                         <numIndex index="3">
-                                            <numIndex index="0">2</numIndex>
-                                            <numIndex index="1">Nur alle mit nein [ ]</numIndex>
+                                            <numIndex index="0">Nur alle mit nein [ ]</numIndex>
+                                            <numIndex index="1">2</numIndex>
                                         </numIndex>
                                     </items>
                                 </config>

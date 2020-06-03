@@ -6,6 +6,7 @@ class TitleProvider extends AbstractPageTitleProvider
 {
     public function setTitle(string $title): void
     {
+        
         $this->title = $title;
     }
 }

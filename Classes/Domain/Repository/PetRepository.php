@@ -3,8 +3,7 @@
 namespace GeorgRinger\Pet\Domain\Repository;
 
 
-use GeorgRinger\Pet\Domain\Model\Filter;
-use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use GeorgRinger\Pet\Domain\Filter;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /***
@@ -24,37 +23,30 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class PetRepository extends Repository
 {
 
+    public function findByMultiple(int $type, $cuteness, $weight)
+    {
+
+    }
+
     public function findByFilter(Filter $filter)
     {
-        $constraints = [];
-
         $query = $this->createQuery();
+
         $query->getQuerySettings()->setRespectStoragePage(false);
 
-        if ($sortBy = $filter->getSortBy()) {
-            $query->setOrderings([$sortBy => 'ASC']);
+        $constraints = [];
+
+        if ($filter->getMinimumCuteness()) {
+            $constraints[] = $query->greaterThanOrEqual('cuteness', $filter->getMinimumCuteness());
         }
-        if ($easyToHandle = $filter->getEasyToHandle()) {
-            if ($easyToHandle === 1) {
-                $constraints[] = $query->equals('easyToHandle', 1);
-            } elseif ($easyToHandle === 2) {
-                $constraints[] = $query->equals('easyToHandle', 0);
-            }
+        if ($filter->getMaximumCuteness()) {
+            $constraints[] = $query->lessThanOrEqual('cuteness', $filter->getMaximumCuteness());
         }
-        if ($type = $filter->getPetType()) {
-            $constraints[] = $query->equals('petType', $type);
+        if ($filter->getMaximumWeight()) {
+            $constraints[] = $query->lessThanOrEqual('weight', $filter->getMaximumWeight());
         }
-        if ($minWeight = $filter->getMinimumWeight()) {
-            $constraints[] = $query->greaterThanOrEqual('weight', $minWeight);
-        }
-        if ($maxWeight = $filter->getMaximumWeight()) {
-            $constraints[] = $query->lessThanOrEqual('weight', $maxWeight);
-        }
-        if ($minCuteness = $filter->getMinimumCuteness()) {
-            $constraints[] = $query->greaterThanOrEqual('cuteness', $minCuteness);
-        }
-        if ($maxCuteness = $filter->getMaximumCuteness()) {
-            $constraints[] = $query->lessThanOrEqual('cuteness', $maxCuteness);
+        if ($filter->getPetType()) {
+            $constraints[] = $query->equals('petType', $filter->getPetType());
         }
 
         if (!empty($constraints)) {
@@ -63,10 +55,6 @@ class PetRepository extends Repository
             );
         }
         return $query->execute();
-    }
-
-    public function findByMultiple(int $type, $cuteness, $weight) {
-
     }
 
     public function findByType(int $type)

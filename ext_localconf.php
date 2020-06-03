@@ -30,10 +30,9 @@ call_user_func(
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         '
-        mod.web_layout.tt_content.preview.list {
+         mod.web_layout.tt_content.preview.list {
             pet_pet = EXT:pet/Resources/Private/Templates/BackendPreview.html
         }
-
         mod {
             wizards.newContentElement.wizardItems.plugins {
                 elements {
